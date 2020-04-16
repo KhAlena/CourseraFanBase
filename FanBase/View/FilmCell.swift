@@ -23,8 +23,7 @@ class FilmCell: UITableViewCell {
         filmImage.image = UIImage(named: film.imageName)
         filmTitle.text = film.title
         
-        initActors(film: film)
-        print(film.title,  "title" )
+        //initActors(film: film)
          
         
     }
@@ -53,6 +52,7 @@ extension FilmCell: UICollectionViewDelegate, UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActorCell", for: indexPath) as? ActorCell {
             let actor = actors[indexPath.row]
             cell.updateViews(actor: actor)
+            print ([indexPath.row], "actor index")
             return cell
         }
         return ActorCell()

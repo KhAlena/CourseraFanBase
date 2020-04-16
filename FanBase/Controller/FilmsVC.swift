@@ -33,7 +33,10 @@ class FilmsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FilmCell") as? FilmCell {
             let film = DataService.instance.getFilms()[indexPath.row]
+            cell.initActors(film: film)
+            cell.Actors.reloadData()
             cell.updateViews(film: film)
+            print ([indexPath.row], "index film")
             return cell
         } else {
             return FilmCell()
